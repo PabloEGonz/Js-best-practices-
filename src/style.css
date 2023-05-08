@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+.container {
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  border: 1px solid #e8e0e0;
+  margin-top: 10%;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px 10px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  width: 18px;
+}
+
+.title-container {
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e8e0e0;
+  padding: 2%;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.reload {
+  width: 20px;
+}
+
+.input-container {
+  border: 1px solid #e8e0e0;
+  padding: 1%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add {
+  border: none;
+  font-size: 16px;
+  width: 90%;
+  background-color: inherit;
+}
+
+.add:focus-visible {
+  outline: none;
+}
+
+.checkbox {
+  width: 20px;
+  margin: auto;
+}
+
+.edit {
+  background-color: #f7f782c4;
+}
+
+.input-container button {
+  padding: 12px;
+  border: none;
+  background-image: url("./images/enter.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.task-container {
+  border: 1px solid #e8e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  list-style-type: none;
+  border: 1px solid #e8e0e0;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 6% 1fr 5%;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.list p {
+  margin: 0 0 0 2%;
+}
+
+.list .options {
+  justify-self: flex-end;
+}
+
+.remove {
+  background-color: #fff;
+  padding: 3%;
+  border: 1px solid #e8e0e0;
+  border-radius: 0 0 10px 10px;
+}
+
+.crossed {
+  text-decoration-line: line-through;
+}
