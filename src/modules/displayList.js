@@ -2,12 +2,10 @@ import completeIcon from '../images/completed.png';
 import checkBox from '../images/checkBox.png';
 import dots from '../images/threeDots.png';
 import trashIcon from '../images/trash.png';
-import { Status } from './checkbox.js';
+import Status from './checkbox.js';
 
-let tasks = [];
-const setLocalStorage = () => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-};
+let tasks = JSON.parse(localTalocalStorage.getItem('tasks')) || [];
+const setLocalStorage = () => localStorage.setItem('tasks', JSON.stringify(tasks));
 
 const listContainer = document.querySelector('.task-container');
 
@@ -30,15 +28,6 @@ const displayList = () => {
   });
 };
 displayList();
-
-const localTasks = localStorage.getItem('tasks');
-const getLocalStorage = () => {
-  if (localTasks) {
-    tasks = JSON.parse(localTasks);
-    displayList();
-  }
-};
-getLocalStorage();
 
 const optionBtn = document.getElementsByClassName('options');
 const taskDescription = document.getElementsByClassName('task-description');
@@ -67,11 +56,8 @@ const editTask = () => { /* eslint-disable no-loop-func */
 
     checked[i].addEventListener('click', () => {
       const checkStatus = new Status(tasks[i].completed);
-      if (!tasks[i].completed) {
-        tasks[i].completed = checkStatus.on();
-      } else {
-        tasks[i].completed = checkStatus.off();
-      }
+      if (!tasks[i].completed) tasks[i].completed = checkStatus.on();
+      else tasks[i].completed = checkStatus.off();
       displayList();
       setLocalStorage();
       editTask();
@@ -127,6 +113,4 @@ const reload = () => {
 };
 reload();
 
-export {
-  displayList, addList, deleteAll, editTask, reload,
-};
+export { displayList, addList, deleteAll, editTask, reload };
